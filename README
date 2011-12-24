@@ -8,6 +8,26 @@ Additionally, there are two externam dependencies: AWS S3 for photo storage and 
 
 The user interface for the players is built using jQuery Mobile and ran well on over 200 devices that ranged from iOS to Android and even RIM.
 
-Finally, there is a corresponding iOS application that was used by the admins to on board the players at the start of the game (while they were picking up their badges). If there is interest, I can put that in a separate github repo (message me). Otherwise, look at the db schema to see what you need for starting a game.
+Finally, there is a corresponding iOS application that was used by the admins to on board the players at the start of the game (while they were picking up their badges). If there is interest, I can put that in a separate github repo (message me). Otherwise, look at the db schema to see what you need for starting a game. A simple script will allow you to bulk load players ahead of time if you have their cells and photos; alternatively you can use the Django admin. Check out ms/models.py Player for how relatively simple the schema is to prefill (note to call player.initialize() to set up some of the one-time random stuff).
 
-Initial list of stomp phrases (courtesey of Abby Bristol) are in the file 1.txt. look at util.py for how to load them into the DB.
+Initial list of stomp phrases (courtesy of Abby Bristol) are in the file ms/1.txt. look at ms/util.py for how to load them into the DB.
+
+To start the game once your data is loaded, navigate to: m/adminstart which lets you kick off a game.
+
+One caveat: there is a prune function (accessible from the admin URL) that worked so-so in production. There are probably edge cases with which it fails but if you can guarantee that no one is leaving the game, you should be ok.
+
+Final caveat: The URL endpoints are secured "through obscurity" so make sure that if you are playing this, you turn your game off at the end or people will mess with you (inevitable law of the Internet). Alternatively it would be trivial to use Django's admin app to lock key URLs down— it's just not something I got around to.
+
+Have fun.
+
+
+== Game Directions Follow. These can be distributed to the players ==
+
+When you check in, we take an iPhone picture of you and get your phone number. When the game begins, every person playing gets a text message with a link to follow to the game.  You get sent the photo of your target with a “stomp phrases” underneath it. Then you go around the party trying to find him.  
+
+When you find the person whose picture you have, you say the “stomp phrase” to him in normal conversation and the target realizes he’s been "stomped," enters his stomp code on your phone (find this code in the My Info section, top right) and you get his target’s photo and phrase sent to you and keep going. The process repeats until there is a winner.
+
+If you leave early, let us know so we can remove you and if you’re playing, keep your phone on so you get updates and your new targets.  You have 15 minutes to “start” playing the first round before the program assumes you’re not interested and removes you.
+
+
+
