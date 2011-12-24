@@ -1,0 +1,19 @@
+{% extends "ms/base.html" %}
+{% block body%}
+<div data-role="page" id="prize" >
+
+	<div data-role="header">
+		<h1>Start a game below</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		{% for g in games %}
+		    	<p><a href="/m/startgame/{{g.id}}"  data-role="button">Start game: {{g.name}}</a></p>	
+		{% endfor %}
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+{%endblock%}

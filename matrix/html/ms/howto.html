@@ -1,0 +1,86 @@
+{% extends "ms/base.html" %}
+
+{% block body%}
+<div data-role="page" id="howto" >
+
+	<div data-role="header">
+
+		<h1>How to stomp</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<p>Your goal is to find the person in the picture, put them at ease with at least 30 seconds of idle banter and <b>stomp 'em!</b></p>	
+		<p>You do this by using their stomp phrase in front of at least one other person.</p>
+		<p>And if you do so, while avoiding being stomped yourself (by having them use <A HREF="#profile">your stomp phrase</A>), you'll get a new muffin to go and stomp.</p>
+		<p>Last muffin standing wins <A HREF="#prize">the prize.</A></p>	
+		<p><a href="/m/play/{{player.permalink}}"  data-role="button">Go play</a></p>	
+		
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div>
+
+<div data-role="page" id="prize" >
+
+	<div data-role="header">
+	    <a href="#main" data-icon="back" data-direction="reverse">Back</a>
+		<h1>If you win</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<p>If you win this year's Muffin Stomp, you take home an iPad 2.</p>
+	
+		<p><a href="#main" data-direction="reverse" data-role="button">Go play</a></p>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+<div data-role="page" id="profile">
+
+	<div data-role="header">
+	    <a href="/m/play/{{player.permalink}}" data-icon="back" data-direction="reverse">Play</a>
+		<h1>My muffin phrase</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>(be listening in case you are stomped)</p>
+		<h3>	&ldquo;{{player.kill_phrase}}&rdquo;</h3>
+		<p>(and remember, there has to be at least one other person there and your stomper must be engaged in chitchat for at least 30 seconds)</p>
+		<h3>And your stomp code is: {{player.kill_code}}</h3>
+		<p><a href="/m/play/{{player.permalink}}" data-direction="reverse" data-role="button">Go play</a></p>
+	</div>
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div><!-- /page popup -->
+
+<div data-role="page" id="kill" >
+
+	<div data-role="header">
+	    <a href="/m/play/{{player.permalink}}" data-icon="back" data-direction="reverse">Back</a>
+		<h1>I've stomped!</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<form action="/m/kill/{{player.permalink}}" method="post">{% csrf_token %}
+		<p>Enter their stomp code below</p>
+		<p>(tell them it is on their "My Info" page)</p>
+		<label for="basic">Target's stomp code:</label>
+        <input type="tel" name="killcode" id="basic" value=""  />
+		<p><button type="submit" data-theme="b" value="Record the stomp" name="stomp_button"></button></p>	
+		</form>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div>
+</div>
+
+
+{%endblock%}

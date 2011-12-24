@@ -1,0 +1,73 @@
+{% extends "ms/base.html" %}
+
+{% block body%}
+
+<div data-role="page" id="main">
+
+	<div data-role="header">
+	    <a href="/m/go/{{player.permalink}}" >HowTo</a>
+		<h1>Your target</h1>
+		<a href="#profile" >My info</a>
+	</div><!-- /header -->
+    
+	<div data-role="content" >	
+	   
+		<img style="width:100%" src="{{player.target.photo_url}}"/>
+		Your muffin's phrase:
+			<h3>	&ldquo;{{player.target.kill_phrase}}&rdquo;</h3>
+		<p><a href="#kill" data-role="button" data-theme="b" data-transition="pop">I stomped my target!</a></p>
+		And in case, it happens to you:
+		<p><a href="#profile" data-role="button" data-theme="e" data-transition="pop">Oh no, I got stomped!</a></p>
+	
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div><!-- /page one -->
+<div data-role="page" id="kill" >
+
+	<div data-role="header">
+	    <a href="/m/play/{{player.permalink}}" data-icon="back" data-direction="reverse">Back</a>
+		<h1>I've stomped!</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<form action="/m/kill/{{player.permalink}}" method="post">{% csrf_token %}
+		<p>Enter their stomp code below</p>
+		<p>(tell them it is on their "My Info" page)</p>
+		<label for="basic">Target's stomp code:</label>
+        <input type="tel" name="killcode" id="basic" value=""  />
+		<p><button type="submit" data-theme="b" value="Record the stomp" name="stomp_button"></button></p>	
+		</form>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div>
+</div>
+
+<div data-role="page" id="profile">
+
+	<div data-role="header">
+	    <a href="/m/play/{{player.permalink}}" data-icon="back" data-direction="reverse">Play</a>
+		<h1>My muffin phrase</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>(be listening in case you are stomped)</p>
+		<h3>	&ldquo;{{player.kill_phrase}}&rdquo;</h3>
+		<p>(and remember, there has to be at least one other person there and your stomper must be engaged in chitchat for at least 30 seconds)</p>
+		<h3>And your stomp code is: {{player.kill_code}}</h3>
+		<p><a href="/m/play/{{player.permalink}}" data-direction="reverse" data-role="button">Go play</a></p>
+	</div>
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div><!-- /page popup -->
+
+
+
+
+{%endblock%}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+        {%block title %}Feedback from game {{ g }}{% endblock %}
+
+
+{% block body %}     
+
+<div class="header">
+ <H2>Game {{g}}</H2>
+  
+</div>
+        
+        <H2>{{g.name}}</H2>
+        <TABLE>
+			<tbody>
+		<TR >
+			<TH>Photo</TH>
+			<TH>Phone</TH>
+			<TH>Feedback</TH>
+		</TR> 
+		{% for p in g.feedback %}
+		<TR>
+            <TD><img src="{{p.photo_url}}"></TD>
+			<TD>{{p.cell}}</TD>
+			<TD>{{p.feedback}}</TD>
+		</TR> 
+        {% endfor %}
+			</tbody>
+        </TABLE>
+
+{% endblock %}

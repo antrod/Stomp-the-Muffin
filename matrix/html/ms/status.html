@@ -1,0 +1,34 @@
+{% extends "ms/base.html" %}
+{% block body%}
+<div data-role="page" id="prize" >
+
+	<div data-role="header">
+		<h1>Game status for: {{g.name}}</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<table style="width:100%">
+            {%if g.is_closed %}
+		    <tbody>
+		        <tr><td>Total active:</td><td>{{g.active_count}}</td></tr>
+				 <tr><td>Total SMSes sent:</td><td>{{g.sms_count}}</td></tr>
+		        <tr><td>Total started:</td><td>{{g.started_count}}</td></tr>
+		        <tr><td>Total killed:</td><td>{{g.killed_count}}</td></tr>
+		    </tbody>
+		</table>
+		<p><a href="/m/status/{{g.id}}" rel="external" data-theme="b" data-role="button">Reload</a></p>
+		<p><a href="/m/actives/{{g.id}}"  data-role="button">Show actives</a></p>	
+		<br/><br/>
+		<p><a href="/m/prune/{{g.id}}"  data-role="button">Prune inactives</a></p>	
+		{% else %}
+		<h1>Game {{g.name}} has not started.</h1>
+		<h2>{{g.active_count}} players queued up to play though...</h2>
+		{% endif %}
+		            
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+{%endblock%}

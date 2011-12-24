@@ -1,0 +1,24 @@
+{% extends "ms/base.html" %}
+{% block body%}
+<div data-role="page" id="actives" >
+
+	<div data-role="header">
+		<h1>Game status for: {{g.name}}</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<ul data-role="listview" data-theme="g">
+	        {% for p in actives %}
+	            <li><a href="/m/playerstatus/{{p.permalink}}">{{p.cell}}</a></li>
+	        {% endfor %}
+	    </ul>
+	   
+		
+		            
+	</div><!-- /content -->
+	
+	<div data-role="footer" >
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+{%endblock%}

@@ -1,0 +1,14 @@
+As of 4.47PM 12/4/2011
+
+- TestFlight launch
+- write description, email, instructions
+X main assignment loop for calculating a full game
+X status board
+X Twilio notifications
+- clean out things gone bad
+X feedback post endpoint
+X gzip for endpoint
+
+
+http://support.testflightapp.com/kb/tutorials/how-to-create-an-ipa-xcode-3
+

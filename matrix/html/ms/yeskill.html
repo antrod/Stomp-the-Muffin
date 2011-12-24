@@ -1,0 +1,22 @@
+{% extends "ms/base.html" %}
+
+{% block body%}
+<div data-role="page" data-theme="b" id="error" >
+
+	<div data-role="header">
+		<h1>Well Stomped</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<h2>One stomp closer to the prize!</h2>
+		<h4>You now have a new muffin target to find. May the force be with you.</h4>
+		
+		<p><a href="/m/play/{{player.permalink}}"  data-role="button">See new target</a></p>
+		
+	</div>
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+{%endblock%}

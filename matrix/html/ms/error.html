@@ -1,0 +1,25 @@
+{% extends "ms/base.html" %}
+
+{% block body%}
+<div data-role="page" data-theme="e" id="error" >
+
+	<div data-role="header">
+		<h1>Something went wrong!</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+	{% if player %}
+		<h2>You have most likely been stomped.</h2>
+		<h4>If this was in error, please go find someone from Matrix to fix it.</h4>
+	{% else %}
+		<h2>For some reason, we don't recognize who you are.</h2>
+		<h4>If you are not on some 1999 immitation of a real smartphone (for instance, some sort of old Blackberry you should be upgrading), please go find someone from Matrix to help you.</h4>
+	{% endif %}
+		
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+{%endblock%}

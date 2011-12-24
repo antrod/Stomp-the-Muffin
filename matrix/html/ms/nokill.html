@@ -1,0 +1,22 @@
+{% extends "ms/base.html" %}
+
+{% block body%}
+<div data-role="page" data-theme="e" id="error" >
+
+	<div data-role="header">
+		<h1>Nope</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<h2>The Stomp code is wrong fat fingers!</h2>
+		<h4>Please check with your target and make sure you enter the right one.</h4>
+		
+		<p><a href="/m/play/{{player.permalink}}" data-role="button">Try again</a></p>
+		
+	</div>
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+{%endblock%}

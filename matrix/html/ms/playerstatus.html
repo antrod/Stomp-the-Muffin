@@ -1,0 +1,26 @@
+{% extends "ms/base.html" %}
+{% block body%}
+<div data-role="page" id="playerstatus" >
+
+	<div data-role="header">
+	    <a href="/m/actives" data-icon="back" data-direction="reverse">Back</a>
+		<h1>Player status for: {{p.cell}}</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<img style="width:100%" src="{{p.photo_url}}">
+		<h2>Has Died: {{p.has_died}}</h2>
+		<h2>Has started: {{p.has_started}}</h2>
+		<h2>Is Active: {{p.is_active}}</h2>
+		<h3>Stomp phrase: {{p.kill_phrase}}</h3>
+		<h3>Stomp code: {{p.kill_code}}</h3>
+		
+		<p><a href="/m/makeinactive/{{p.permalink}}"  data-theme="b" data-role="button">Make Inactive</a></p>
+		            
+	</div><!-- /content -->
+	
+	<div data-role="footer" >
+		<h4>Happy Holidays from Matrix, 2011</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+{%endblock%}
