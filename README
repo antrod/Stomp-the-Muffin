@@ -1,0 +1,13 @@
+This is the code for the game that we played on 12/6/2011 at the Matrix Holiday party. It is a variation of the game played throughout college campuses called Assassin that gives everyone a "target" to go and hunt down. When you approach your "target" your goal is to use their assigned "stomp phrase" on them so as to kill them and acquire their target.
+
+The initial flow of this game creates a cyclic graph with every player having one target so it is highly dependent on everyone committing to play all the way through.
+
+The project is built as a Django app which will depend on an admin user existing.
+
+Additionally, there are two externam dependencies: AWS S3 for photo storage and a Twilio account for SMSing notifications.
+
+The user interface for the players is built using jQuery Mobile and ran well on over 200 devices that ranged from iOS to Android and even RIM.
+
+Finally, there is a corresponding iOS application that was used by the admins to on board the players at the start of the game (while they were picking up their badges). If there is interest, I can put that in a separate github repo (message me). Otherwise, look at the db schema to see what you need for starting a game.
+
+Initial list of stomp phrases (courtesey of Abby Bristol) are in the file 1.txt. look at util.py for how to load them into the DB.
